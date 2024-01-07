@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM</title>
+    <style>
+        .container{
+            color: blue;
+        }
+        .js{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" style="display: block; height: 200px; width: 300px; margin: 10px auto;">
+        Hi this is container
+    </div>
+
+    <button id="addItem">
+        Click me
+    </button>
+
+
+    <script>
+        let element = document.getElementById('addItem');
+        let newElement = document.createElement('p');
+
+        let doc = document.getElementsByName('body');
+
+        element.onclick = function() { 
+            newElement.innerText = "i am added using DOM";
+            document.getElementById('container').appendChild(newElement);
+            
+            document.getElementById('container').style.border = "2px solid black"
+        }
+
+        element.ondblclick = function(){
+            document.getElementById('container').removeChild(newElement);
+            doc.style.backgroundColor = "black"
+        }
+
+    </script>
+</body>
+</html>
